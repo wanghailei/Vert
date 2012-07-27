@@ -1,0 +1,135 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<script src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			layout();
+			$(".scrollable").scrollable({ vertical:true,  }).navigator("#navigator").autoscroll({ autoplay:true, interval:5000 });			
+		});	
+		$(window).resize(function() {
+			layout();
+		});
+		function layout() {
+			var windowWidth  = $(window).width();
+			var windowHeight = $(window).height();
+			$(".scrollable").width( $(window).width() );
+			$(".scrollable").height( $(window).height() );
+			$(".items").width( $(window).width() );
+			$(".items > div").width( $(window).width() );
+			$(".items > div").height( $(window).height() );
+		}	
+	</script>
+	<style>
+		#app {
+			position:absolute;
+			top:0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+		}
+		.bar {
+			height: 50px;
+			line-height: 50px;
+			background-color: #FBFBFB;
+			box-shadow: 0px 3px 1px 3px black;
+		}
+		.scrollable {
+			position:relative;
+			overflow:hidden;
+			background-color: #FBFBFB;
+		}
+		.items {
+			position:absolute;			
+			height:20000em;
+		}
+		.items > div {
+			background-color: #F5F5F5;
+		}
+		.arrows {
+			height: 50px;
+			width: 101px;
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+		}
+		.arrows > div {
+			position: absolute;
+			top:0;
+			bottom: 0;
+			width: 50px;
+			text-align: center;
+		}
+		.arrow-left {
+			right: 51px;
+		}
+		.arrow-right {
+			right: 0;
+		}
+		.button {
+			display: block;
+			height:50px;
+			line-height: 50px;
+			cursor: pointer;
+			background-color: #F8F8F8;
+
+		}
+		.toc {
+			position: absolute;
+			top:0;
+			bottom: 0;
+			left: 0;
+			right:101px;
+		}
+		
+		.toc > .button {
+			float: left;
+			padding-left:10px;
+			padding-right:10px;
+			margin-right:1px;
+		}
+	</style>
+</head>
+<body>
+<div id="app">
+	<div id="h" class="bar">
+		<div id="navigator" class="toc">
+			<div class="button">IDEO</div>
+			<div class="button">Project</div>
+			<div class="button">Team</div>
+			<div class="button">Problem</div>
+			<div class="button">Solution</div>
+			<div class="button">Contact</div>	
+		</div>
+		<div class="arrows">
+			<div class="prev arrow-left button">&lt;</div>
+			<div class="next arrow-right button">&gt;</div>
+		</div>
+	</div>
+	<div id="b" class="scrollable">
+		<div class="items">
+			<div style="background-color:#FF0033">
+				content screen 1 IDEO
+			</div>
+			<div style="background-color:#F5F5F5">
+				content screen 2 Project
+			</div>
+			<div style="background-color:#336699">
+				content screen 3 Team	
+			</div>
+			<div style="background-color:#FBFBFB">
+				content screen 4 Problem
+			</div>
+			<div style="background-color:#333333">
+				content screen 5 Solution
+			</div>
+			<div style="background-color:#999999">
+				content screen 6 Contact	
+			</div>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>
